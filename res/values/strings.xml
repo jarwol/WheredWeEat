@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WheredWeEat</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search Past Visits</string>
+    <string name="hint_filter_visits">Pizza Hut, Italian, etc.</string>
+    <string name="action_new_visit">New Visit</string>
+
+</resources>
