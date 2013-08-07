@@ -6,5 +6,12 @@
     <string name="action_search">Search Past Visits</string>
     <string name="hint_filter_visits">Pizza Hut, Italian, etc.</string>
     <string name="action_new_visit">New Visit</string>
+    <string name="title_activity_new_visit">Add New Visit</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="label_place_name">Where did you go?</string>
+    <string name="label_visit_date">When did you go?</string>
+    <string name="label_visit_friends">Who were you with?</string>
+    <string name="label_visit_rating">How did you like it?</string>
+    <string name="submit">Submit</string>
 
 </resources>

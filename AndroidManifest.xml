@@ -5,8 +5,9 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
     <application
         android:allowBackup="true"
@@ -14,13 +15,20 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.jarwol.wheredweeat.SearchActivity"
+            android:name="com.jarwol.wheredweeat.activities.SearchActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.jarwol.wheredweeat.activities.NewVisitActivity"
+            android:label="@string/title_activity_new_visit" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jarwol.wheredweeat.activities.SearchActivity" />
         </activity>
     </application>
 
