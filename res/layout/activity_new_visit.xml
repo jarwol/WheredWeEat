@@ -26,8 +26,6 @@
             android:ems="10"
             android:hint="@string/hint_filter_visits"
             android:inputType="textNoSuggestions" >
-
-            <requestFocus />
         </EditText>
 
         <TextView

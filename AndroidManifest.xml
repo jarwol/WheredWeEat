@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.jarwol.wheredweeat.activities.SearchActivity"
+            android:name="com.jarwol.wheredweeat.ui.SearchActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.jarwol.wheredweeat.activities.NewVisitActivity"
+            android:name="com.jarwol.wheredweeat.ui.NewVisitActivity"
             android:label="@string/title_activity_new_visit" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

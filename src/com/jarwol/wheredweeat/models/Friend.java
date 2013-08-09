@@ -29,4 +29,9 @@ public class Friend extends BaseModel {
 	public void setVisit(Visit visit) {
 		this.visit = visit;
 	}
+
+	@Override
+    public String toString() {
+		return this.name;
+	}
 }

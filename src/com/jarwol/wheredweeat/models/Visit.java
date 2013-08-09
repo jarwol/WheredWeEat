@@ -69,4 +69,15 @@ public class Visit extends BaseModel {
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
+
+	public String getFriendString() {
+		StringBuilder sb = new StringBuilder();
+		if (this.friends != null && this.friends.size() > 0) {
+			for (Friend f : this.friends) {
+				sb.append(f).append(", ");
+			}
+			sb.delete(sb.length() - 2, sb.length());
+		}
+		return sb.toString();
+	}
 }

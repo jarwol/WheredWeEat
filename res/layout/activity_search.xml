@@ -16,8 +16,6 @@
         android:ems="10"
         android:hint="@string/hint_filter_visits"
         android:inputType="textFilter" >
-
-        <requestFocus />
     </EditText>
 
     <ListView
@@ -25,5 +23,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
     </ListView>
-	
+
 </LinearLayout>
