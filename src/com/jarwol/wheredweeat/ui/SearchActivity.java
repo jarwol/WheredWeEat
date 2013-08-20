@@ -1,9 +1,7 @@
 package com.jarwol.wheredweeat.ui;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,6 +9,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,14 +23,14 @@ import com.jarwol.wheredweeat.data.DatabaseHelper;
 import com.jarwol.wheredweeat.models.Visit;
 
 public class SearchActivity extends OrmLiteBaseActivity<DatabaseHelper> {
-	private Map<Integer, Visit> visits;
+	private SparseArray<Visit> visits;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
 
-		this.visits = new HashMap<Integer, Visit>();
+		this.visits = new SparseArray<Visit>();
 		populateVisits();
 
 		final ListView list = (ListView) findViewById(R.id.listVisits);
@@ -45,7 +44,9 @@ public class SearchActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						try {
-							Visit visit = SearchActivity.this.visits.remove(v.getTag());
+							int key = ((Integer) v.getTag()).intValue();
+							Visit visit = SearchActivity.this.visits.get(key);
+							SearchActivity.this.visits.delete(key);
 							SearchActivity.this.getHelper().getVisitDao().delete(visit);
 							((VisitAdapter) list.getAdapter()).remove(visit);
 						}
@@ -89,7 +90,7 @@ public class SearchActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 			List<Visit> visitList = this.getHelper().getVisitDao().queryBuilder().orderBy("date", false).query();
 			list.setAdapter(new VisitAdapter(this, R.layout.visit_list_item, visitList));
 			for (Visit v : visitList) {
-				this.visits.put(Integer.valueOf(v.getId()), v);
+				this.visits.put(v.getId(), v);
 			}
 		}
 		catch (SQLException e) {
